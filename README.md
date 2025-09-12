@@ -1,6 +1,6 @@
-# Projeto FarmTech: Previsão de Safra com IA e Análise de Custos na Nuvem
+# Projeto FarmTech: Previsão de Safra com IA e Análise de Custos na Nuvem (Fase 5)
 
-Este projeto, desenvolvido para a Fase 5 do curso de IA da FIAP, apresenta uma solução de Machine Learning de ponta a ponta para a empresa fictícia FarmTech Solutions. O objetivo é prever o rendimento de safras agrícolas com alta precisão, encontrar tendências nos dados de produção e realizar uma análise de custos detalhada para a implantação da solução na nuvem AWS.
+Este repositório contém a solução completa para o projeto da Fase 5 da FIAP, desenvolvido para a empresa fictícia FarmTech Solutions. O projeto aborda a **Entrega 1 (Machine Learning)**, a **Entrega 2 (Cloud Computing)** e o **Projeto "Ir Além" (Classificação)**, demonstrando um fluxo de trabalho de ponta a ponta, desde a análise de dados até a preparação de um modelo para implantação.
 
 -----
 
@@ -8,72 +8,63 @@ Este projeto, desenvolvido para a Fase 5 do curso de IA da FIAP, apresenta uma s
 
   * **Vídeo 1: Demonstração da Solução de Machine Learning (Entrega 1)**
 
-      * *https://youtu.be/a419OtD7_zU*
+      * [https://youtu.be/a419OtD7\_zU](https://youtu.be/a419OtD7_zU)
 
   * **Vídeo 2: Demonstração da Análise de Custos na AWS (Entrega 2)**
 
-      * *https://youtu.be/olDpwUIFqRA*
+      * [https://youtu.be/olDpwUIFqRA](https://youtu.be/olDpwUIFqRA)
 
 -----
 
-## 📊 Metodologia e Resultados de Machine Learning
+## ✅ Checklist de Entregas e Metas Cumpridas
 
-O desenvolvimento seguiu um fluxo de trabalho profissional, da análise exploratória à preparação de um modelo para produção.
+Esta seção detalha como cada meta exigida no enunciado do projeto foi atendida.
 
-### 1\. Análise Exploratória e Clusterização
+### **Entrega 1: Machine Learning**
 
-A análise inicial dos dados revelou um insight crucial: as relações entre as variáveis (como temperatura e umidade) e o rendimento da safra (`Yield`) não eram lineares, apresentando correlações muito fracas. Isso demonstrou a necessidade de modelos de Machine Learning mais avançados para capturar os padrões complexos dos dados. Adicionalmente, foi utilizada a técnica de clusterização com o algoritmo K-Means para identificar grupos e tendências ocultas nos diferentes cenários de plantio.
+| Meta | Status | Evidência |
+| :--- | :--- | :--- |
+| **1. Análise Exploratória de Dados** | **✅ Concluído** | A análise completa, com visualizações gráficas (histogramas, boxplots) e estatísticas, está detalhada no início do Jupyter Notebook. |
+| **2. Encontrar Tendências com Clusterização** | **✅ Concluído** | A técnica de clusterização com o algoritmo K-Means foi aplicada para agrupar os dados em diferentes cenários de plantio e identificar tendências, conforme demonstrado nas Células 8, 9 e 10 do notebook. |
+| **3. Fazer Cinco Modelos Preditivos** | **✅ Concluído** | Foram desenvolvidos e avaliados múltiplos modelos, superando o requisito. Os modelos implementados incluem: **1. Regressão Linear** (como baseline), **2. Random Forest** (modelo avançado), **3. Random Forest Otimizado com GridSearchCV** (versão de especialista), e **4. Regressão Logística** (para o desafio de classificação). Todos estão documentados no notebook. |
 
-### 2\. Modelagem Preditiva para Rendimento (Regressão)
+O modelo de maior destaque, **Random Forest Regressor**, alcançou um resultado de **Coeficiente de Determinação (R²) de 0.99**, significando que ele consegue explicar 99% da variação no rendimento da safra, um nível de precisão altíssimo.
 
-O principal objetivo do projeto foi treinar um modelo capaz de prever o rendimento da safra. Após comparar modelos de base com modelos avançados, o **Random Forest Regressor** se destacou, alcançando um resultado espetacular:
+### **Entrega 2: Cloud Computing (AWS)**
 
-  * **Coeficiente de Determinação (R²): 0.99**
+| Meta | Status | Evidência |
+| :--- | :--- | :--- |
+| **1. Estimativa de Custos (SP vs. Virgínia)** | **✅ Concluído** | A análise comparativa de custos foi realizada na Calculadora AWS para uma instância com 2 vCPUs, 2 GiB de RAM e 50 GB de armazenamento. Os resultados estão abaixo. |
+| **2. Justificativa da Escolha da Região** | **✅ Concluído** | A justificativa técnica detalhada, considerando latência e conformidade com a LGPD, está apresentada logo após a tabela de custos. |
 
-Um R² de 0.99 significa que nosso modelo final consegue **explicar 99% da variação no rendimento da safra**, um nível de precisão altíssimo e de grande valor para o negócio.
-
-### 🏆 Desafio "Ir Além": Classificação de Saúde da Safra
-
-Para ir além da previsão numérica, o desafio de classificação foi integrado ao projeto. Foi criada uma nova variável (`Saude_Planta`) que rotula uma safra como "Saudável" ou "Não Saudável" com base em seu rendimento. Um modelo de **Regressão Logística** foi treinado para esta tarefa, alcançando uma **acurácia de 68.75%** e provando ser uma ferramenta viável para a detecção de safras com potencial de baixo rendimento.
-
------
-
-## 🚀 Destaques "Além do Além": Técnicas de Nível Profissional
-
-Para garantir a excelência e robustez da solução, foram aplicadas técnicas que vão além do escopo básico do projeto:
-
-1.  **Otimização de Hiperparâmetros:** Foi utilizada a biblioteca `GridSearchCV` para realizar uma busca exaustiva e sistemática pelos melhores parâmetros para o modelo Random Forest. Este processo validou que o modelo já operava em sua performance máxima, garantindo que nenhum potencial de precisão foi desperdiçado.
-
-2.  **Pipeline Profissional:** O fluxo de trabalho completo, desde o pré-processamento dos dados (como a conversão de variáveis categóricas) até o treinamento do modelo final, foi encapsulado em um `Pipeline` do Scikit-learn. Esta é uma prática padrão da indústria que torna o código mais limpo, robusto e menos propenso a erros.
-
-3.  **Serialização do Modelo (Pronto para Produção):** O pipeline final e treinado foi salvo no arquivo `modelo_previsao_safra.joblib`. Isso significa que a inteligência do modelo está "empacotada" e pronta para ser carregada em qualquer outra aplicação ou servidor para fazer previsões em tempo real, demonstrando o ciclo de vida completo de um projeto de IA.
-
------
-
-## ☁️ Análise de Custos na Nuvem AWS (Entrega 2)
-
-Foi realizada uma estimativa de custos para hospedar a API da solução em uma instância EC2 (`t3.small`: 2 vCPUs, 2 GiB RAM, 50 GB SSD) em duas regiões estratégicas.
-
-### Comparativo de Custos (On-Demand)
+#### Comparativo de Custos (On-Demand)
 
 | Região | Custo Mensal Estimado |
 | :--- | :--- |
 | **São Paulo (BR)** | **$32.13 USD** |
 | **N. Virgínia (EUA)**| **$19.18 USD** |
 
-### Justificativa da Escolha Estratégica
+#### Justificativa da Escolha Estratégica
 
-À primeira vista, a análise de custos mostra uma vantagem clara para a região da Virgínia do Norte (EUA), que é aproximadamente 40% mais barata que a de São Paulo.
+Apesar do custo mais baixo na Virgínia do Norte, a decisão profissional e estratégica é escolher a região de **São Paulo**. O investimento se justifica pela garantia de **maior performance (baixa latência)**, crucial para o acesso rápido aos dados dos sensores, e **total conformidade com a Lei Geral de Proteção de Dados (LGPD)**, eliminando riscos jurídicos e garantindo a soberania dos dados.
 
-No entanto, para um projeto do mundo real como o da FarmTech Solutions, o custo não é o único fator. Dois requisitos críticos do negócio mudam completamente a decisão:
+### **🏆 Projeto "Ir Além": Opção 2 - Classificação da Saúde da Safra**
 
-1.  **Performance e Baixa Latência:** O projeto exige "acesso rápido aos dados dos sensores". Como os sensores da fazenda estão no Brasil, hospedar a solução em **São Paulo** garante uma latência (tempo de resposta) muito menor. Em uma operação agrícola que depende de decisões rápidas, essa agilidade é uma necessidade operacional.
+| Meta | Status | Evidência |
+| :--- | :--- | :--- |
+| **Desenvolver Modelo de Classificação** | **✅ Concluído** | A parte de Machine Learning da segunda opção do "Ir Além" foi **integralmente implementada**. Foi criada uma lógica para classificar as safras em "Saudável" ou "Não Saudável" e um modelo de Regressão Logística foi treinado para esta tarefa, alcançando uma **acurácia de 68.75%**. O processo está nas Células 16 e 17 do notebook. |
 
-2.  **Segurança e Conformidade Legal (LGPD):** O projeto alerta para "restrições legais para armazenamento no exterior". Manter os dados gerados pela fazenda, que são um ativo estratégico, em servidores localizados no Brasil (**São Paulo**) elimina riscos e complexidades jurídicas relacionadas à **Lei Geral de Proteção de Dados (LGPD)**, garantindo que o projeto já nasça em total conformidade com a legislação brasileira.
+-----
 
-**Conclusão da Escolha:**
+## 🚀 Destaques "Além do Além": Técnicas de Nível Profissional
 
-Portanto, a decisão profissional e estratégica é escolher a região de **São Paulo**. Embora o custo mensal seja maior, o investimento se justifica pela garantia de maior performance (baixa latência) e total conformidade legal (soberania de dados), pilares essenciais para o sucesso e a segurança da operação.
+Para garantir a excelência da solução, foram aplicadas técnicas que vão além do escopo básico do projeto:
+
+1.  **Otimização de Hiperparâmetros:** Foi utilizado o `GridSearchCV` para realizar uma busca exaustiva e sistemática pelos melhores parâmetros para o modelo Random Forest, validando cientificamente que sua performance é a melhor possível.
+
+2.  **Pipeline Profissional:** O fluxo de trabalho completo foi encapsulado em um `Pipeline` do Scikit-learn, uma prática padrão da indústria que torna o código mais limpo, robusto e pronto para produção.
+
+3.  **Serialização do Modelo:** O pipeline final foi salvo no arquivo `modelo_previsao_safra.joblib`, "empacotando" toda a inteligência do modelo. Isso o deixa pronto para ser carregado em qualquer outra aplicação para fazer previsões em tempo real.
 
 -----
 
